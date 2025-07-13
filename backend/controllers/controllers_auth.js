@@ -22,9 +22,29 @@ exports.login=async(req, res) => {
     }
 };
 
-exports.session=async(req, res) => {
-    console.log({ user: {username:req.session.nome} })
-    const nome = req.session.nome
-    console.log(nome)
+
+exports.registar=async(req, res) => {
+    
+    const alunosver = await aluno.find(req.body);
+
+    if(alunosver[0] == null){
+        const alunos = new aluno(req.body);
+        await alunos.save();
+        res.status(201).json(aluno);
+    }
+
 };
+
+
+exports.autenticado=async(req, res) => {
+
+
+    if (req.session.nome) {
+        console.log("esta autenticado")
+        next(); 
+    } else {
+        console.log("nao esta autenticado")
+        res.redirect('http://127.0.0.1:5500/'); 
+    }
+};  
 

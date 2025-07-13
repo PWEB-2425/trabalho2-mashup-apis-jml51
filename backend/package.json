@@ -1,7 +1,7 @@
 {
   "name": "trabalho2-mashup-apis-jml51",
   "version": "1.0.0",
-  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/psUndoci) # Trabalho #2 API MASHUP",
+  "description": "autors   José manuel machado lopes 27639          Helena antunes cardoso  31662",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,9 +18,10 @@
   "homepage": "https://github.com/PWEB-2425/trabalho2-mashup-apis-jml51#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^17.0.0",
+    "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "express-session": "^1.18.1",
-    "mongodb": "^6.17.0"
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.16.3"
   }
 }

@@ -3,7 +3,7 @@ const session = require('express-session');
 
 exports.get = async (req, res) => {
     const alunos = await aluno.find();
-    //console.log(alunos);
+    console.log(alunos);
     res.json(alunos);
 }
 
@@ -37,8 +37,6 @@ exports.registar=async(req, res) => {
 
 
 exports.autenticado=async(req, res) => {
-
-
     if (req.session.nome) {
         console.log("esta autenticado")
         next(); 

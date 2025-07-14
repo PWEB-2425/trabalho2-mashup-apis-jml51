@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const cors = require('cors');
 require('dotenv').config();
-const aluno = require('./models/models')
+
+
 
 
 const authRoutes = require('./routes/routes_auth');
+const apiRoutes = require('./routes/routes_api');
 
 
 const app = express();
@@ -20,6 +22,9 @@ app.use(session({
 }));
 
 app.use('/auth', authRoutes);
+app.use('/api', apiRoutes);
+
+
 
 mongoose.connect(
     process.env.MONGO_URI ||'mongodb+srv://jose:8854@academicos.pbgpkff.mongodb.net/?retryWrites=true&w=majority&appName=academicos',{

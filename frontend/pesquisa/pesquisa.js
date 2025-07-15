@@ -1,7 +1,7 @@
 const apiUrlAuth = 'http://localhost:3000/auth'
 const apiUrl= 'http://localhost:3000/api'
 
-//estaAutenticado()
+estaAutenticado()
 //todosCambios()
 
 
@@ -48,12 +48,20 @@ async function paises(){
 
     const pais = await info.json()
 
-    console.log(pais[0].borders)
-    lista_pais.innerHTML=`
-            <li>capital: ${pais[0].capital}</li>
-            <li>fronteira com: ${pais[0].borders}</li>
-            <li>continete: ${pais[0].continents}</li>
+    if(pais[0] == null){
+        lista_pais.innerHTML=
             `
+                <li>pais nao encontardo</li>
+            `
+    }else{
+        lista_pais.innerHTML=
+            `
+                <li>capital: ${pais[0].capital}</li>
+                <li>fronteira com: ${pais[0].borders}</li>
+                <li>continete: ${pais[0].continents}</li>
+            `
+        
+    }
 }
 
 
@@ -69,27 +77,3 @@ async function paises(){
 
 
 
-
-
-/*
-
-async function paisP(){
-
-    const nomeP = document.getElementById("nomeP").value
-
-    const res = await fetch(`${apiPais}/${nomeP}`)
-
-    const info = await res.json()
-
-    console.log(info[0])
-
-    const lista = document.getElementById("lista_de_cambios")
-
-    
-
-
-}
-
-const btnPesquisa = document.getElementById("btnPesquisa")
-btnPesquisa.addEventListener("click",paisP)
-*/

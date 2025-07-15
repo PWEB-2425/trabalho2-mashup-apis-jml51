@@ -18,7 +18,8 @@ app.use(session({
     secret: process.env.SECRET || "12345", 
     resave: false,                        
     saveUninitialized: false,             
-    cookie: { secure: false }             
+    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000  } 
+                
 }));
 
 app.use('/auth', authRoutes);
@@ -39,5 +40,10 @@ app.listen(PORT, () => {
     console.log(`Servidor a correr em http://localhost:${PORT}`);
 });
 
-
-
+app.get('/login', (req, res) => {
+    // Set session data
+    req.session.user ={ id: 1, username: 'example' };
+    const ses =JSON.stringify(req.session.user)
+    console.log(ses)
+    res.send('Logged in');
+});

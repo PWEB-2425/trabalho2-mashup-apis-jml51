@@ -13,7 +13,7 @@ exports.login=async(req, res) => {
 
     if(alunos[0] != null){
         console.log(`Utilizador ${req.body.nome} autenticado com sucesso.`);
-        req.session.nome = req.body.nome;
+        req.session.user = {  username: req.body.nome };
         console.log(req.session)
         return res.status(200).json({ success: true }); 
     }else{
@@ -37,12 +37,14 @@ exports.registar=async(req, res) => {
 
 
 exports.autenticado=async(req, res) => {
-    if (req.session.nome) {
+    if (req.session.user != null) {
         console.log("esta autenticado")
+        console.log(JSON.stringify(req.session.user))
         next(); 
     } else {
         console.log("nao esta autenticado")
-        res.redirect('http://127.0.0.1:5500/'); 
+        res.redirect('/index.html'); 
+    
     }
 };  
 

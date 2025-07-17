@@ -5,8 +5,6 @@ const cors = require('cors');
 require('dotenv').config();
 
 
-
-
 const authRoutes = require('./routes/routes_auth');
 const apiRoutes = require('./routes/routes_api');
 
@@ -42,7 +40,7 @@ app.listen(PORT, () => {
 
 app.get('/login', (req, res) => {
     // Set session data
-    req.session.user ={ id: 1, username: 'example' };
+   // req.session.user ={ id: 1, username: 'example' };
     const ses =JSON.stringify(req.session.user)
     console.log(ses)
     res.send('Logged in');

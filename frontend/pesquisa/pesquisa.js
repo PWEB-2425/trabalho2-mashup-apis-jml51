@@ -1,14 +1,19 @@
 const apiUrlAuth = 'http://localhost:3000/auth'
 const apiUrl= 'http://localhost:3000/api'
 
-estaAutenticado()
-//todosCambios()
+//estaAutenticado()
 
 
 async function estaAutenticado(){
-    const res = fetch(`${apiUrlAuth}/autenticado`)
+    const res = await fetch(`${apiUrlAuth}/autenticado`)
 
-    console.log(res)
+    if(res.url != null){
+        window.location.assign(res.url)
+        return 0
+    }
+
+    const credenciais = await res.json()
+    
 }
 
 
@@ -18,25 +23,25 @@ async function todosCambios(){
     
     const info = await res.json()
 
-    console.log(res)
-    console.log(info)
 
     const lista = document.getElementById("lista_de_cambios")
 
     lista.innerHTML=""
 
-    for (moedas in (info.rates)){
+    for (moedas in (info.quotes)){
         let elem = document.createElement("li")
 
-        elem.innerHTML=
-            "moeda:" + moedas+ "    " +
-            "cambio para euro" + (info.rates[moedas]);
+        elem.innerHTML= moedas+ " para euro " + (info.quotes[moedas]);
 
         lista.appendChild(elem)
     }
 }
+
+
 const btnContry = document.getElementById("btnContry")
 btnContry.addEventListener("click", paises)
+btnContry.addEventListener("click", todosCambios)
+
 
 
 async function paises(){
@@ -47,6 +52,9 @@ async function paises(){
     const info = await fetch(`${apiUrl}/paisesApi/${countryInput}`)
 
     const pais = await info.json()
+
+    console.log(info)
+    console.log(pais)
 
     if(pais[0] == null){
         lista_pais.innerHTML=

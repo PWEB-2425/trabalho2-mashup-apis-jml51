@@ -1,14 +1,12 @@
-const apiCambio = "https://api.exchangeratesapi.io/v1/latest?access_key=e239c326546ec994d2ec6a4d7aec5575"
+//const apiCambio = "https://api.exchangeratesapi.io/v1/latest?access_key=e239c326546ec994d2ec6a4d7aec5575"
+const apiCambio = "https://api.exchangerate.host/live?access_key=686209ccb12908ba17993081218c13b7"
 const apiPais = "https://restcountries.com/v3.1/name"
 
 exports.cambioApi = async(req,res) =>{
 
-    const moedas = await fetch(apiCambio)
+    const info = await fetch(apiCambio)
 
-    const info = await moedas.json()
-
-    console.log(info)
-    console.log(moedas)
+    const moedas = await info.json()
 
     res.json(moedas)
 }

@@ -22,7 +22,6 @@ async function login(){
             body: credenciais_json
         })
 
-    
     if(res == true){
         redirect("../filmes.html")
     }else{

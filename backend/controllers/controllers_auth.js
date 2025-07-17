@@ -40,11 +40,10 @@ exports.autenticado=async(req, res) => {
     if (req.session.user != null) {
         console.log("esta autenticado")
         console.log(JSON.stringify(req.session.user))
-        next(); 
+        res.json(req.session.user)
     } else {
         console.log("nao esta autenticado")
-        res.redirect('/index.html'); 
-    
+        res.redirect('http://127.0.0.1:5501/'); 
     }
 };  
 

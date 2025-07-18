@@ -1,4 +1,4 @@
-const apiUrlAuth = 'http://localhost:3000/auth'
+const apiUrlAuth = 'https://trabalho2-mashup-apis-jml51.onrender.com/auth'
 
 
 

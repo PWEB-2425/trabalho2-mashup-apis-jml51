@@ -1,5 +1,5 @@
-const apiUrlAuth = 'http://localhost:3000/auth'
-const apiUrl= 'http://localhost:3000/api'
+const apiUrlAuth = 'https://trabalho2-mashup-apis-jml51.onrender.com/auth'
+const apiUrl= 'https://trabalho2-mashup-apis-jml51.onrender.com/api'
 
 //estaAutenticado()
 
